@@ -1,14 +1,9 @@
-let jmeno = prompt("Zadejte své jméno")
-let prijmeni = prompt("Zadejte své příjmení")
+let jmeno = prompt("Zadejte své jméno bez diakritiky")
+let prijmeni = prompt("Zadejte své příjmení bez diakritiky")
 let vysledek = document.getElementById("vysledek")
 
-//tahle funkce vygenerována, odstranuje diakritiku
-function odstranitDiakritiku(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
-let jmenoUprava = odstranitDiakritiku(jmeno.toLowerCase());
-let prijmeniUprava = odstranitDiakritiku(prijmeni.toLowerCase())
+let jmenoUprava = jmeno.toLowerCase()
+let prijmeniUprava = prijmeni.toLowerCase()
 
 //podmínka pracující se vstupem uživatele na požadavek jména
 if(jmenoUprava.length === 0){
